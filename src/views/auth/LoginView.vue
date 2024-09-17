@@ -14,7 +14,10 @@ import LoginForm from '@/components/forms/LoginForm.vue';
           <div class="text-body-1 text-muted text-center mb-3">Vue Material Admin</div>
           <LoginForm />
           <div class="d-flex align-center justify-center">
-            <a href="/auth/register" class="text-primary text-decoration-none"> {{ $t('Create account') }}</a>
+            <router-link :to="{ name: 'Register' }" custom v-slot="{ href, navigate }">
+              <a :href="href" @click="navigate" class="text-primary text-decoration-none">{{ $t('Create account') }}</a>
+            </router-link>
+            <!-- <a href="/auth/register" class="text-primary text-decoration-none"> {{ $t('Create account') }}</a> -->
           </div>
         </VCardItem>
       </VCard>

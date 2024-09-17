@@ -8,7 +8,7 @@ import ProfileDropdown from './dropdown/ProfileDropdown.vue';
 <template>
   <!------Header-------->
   <VAppBar :elevation="10">
-    <VAppBarNavIcon />
+    <VAppBarNavIcon icon="mdi-home" :to="{ name: 'Dashboard' }" />
     <VSpacer />
     <!-- Notification -->
     <NotificationDropdown />

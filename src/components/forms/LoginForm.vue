@@ -22,8 +22,8 @@ const formRules = reactive({
   ]
 });
 const formModel = reactive({
-  username: 'admin',
-  password: '123456'
+  email: '',
+  password: ''
 });
 
 const userStore = useUserStore();
@@ -34,9 +34,12 @@ const formValid = ref(false);
 const handleSubmit = async () => {
   if (formValid.value === true) {
     submiting.value = true;
+    console.log(formModel);
     try {
       const { data } = await login(formModel);
+      // console.log(data, 'kampret');
       const { access_token } = data;
+      // console.log(access_token, 'kampret');
       submiting.value = false;
       userStore.setToken(access_token);
       router.replace(route.query.to ? String(route.query.to) : '/');
@@ -58,7 +61,7 @@ const handleSubmit = async () => {
           color="primary"
           name="username"
           :rules="formRules.username"
-          v-model="formModel.username"
+          v-model="formModel.email"
         />
       </VCol>
       <VCol cols="12">

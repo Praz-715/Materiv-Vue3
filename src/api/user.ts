@@ -1,10 +1,12 @@
 import { IAccessToken, IErrorResp, IUser } from './type';
 import axiosIns from '@/plugins/axios';
 
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
+
 export async function login(params: object) {
   const options = {
     method: 'POST',
-    url: `/api/auth/login`,
+    url: `${BACKEND_URL}/login`,
     data: params,
     headers: {
       'Content-Type': 'application/json'
@@ -16,7 +18,7 @@ export async function login(params: object) {
 export async function fetchMe() {
   const options = {
     method: 'GET',
-    url: `/api/me`,
+    url: `${BACKEND_URL}/me`,
     headers: {
       'Content-Type': 'application/json'
     }
